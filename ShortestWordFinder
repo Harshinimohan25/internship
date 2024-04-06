@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ShortestWordFinder {
+    public static String shortestWord(String str) {
+        // Split the string into words
+        String[] words = str.split("\\s+");
+        
+        // Initialize the shortest word as the first word
+        String shortest = words[0];
+        
+        // Iterate through the words to find the shortest one
+        for (int i = 1; i < words.length; i++) {
+            if (words[i].length() < shortest.length()) {
+                shortest = words[i];
+            }
+        }
+        
+        return shortest;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a string of words: ");
+        String input = scanner.nextLine();
+        
+        String shortest = shortestWord(input);
+        System.out.println("The shortest word in the string is: " + shortest);
+        
+        scanner.close();
+    }
+}
